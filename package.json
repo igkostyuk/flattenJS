@@ -1,0 +1,52 @@
+{
+  "name": "flatten",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe \"chrome:headless\" tests --app \"http-server -p 9080 -s\"",
+    "test:visual": "testcafe chrome tests --app \"http-server -p 9080 -s\"",
+    "verify": "lint-staged && jsninja-sensei"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.5",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-testcafe": "^0.2.1",
+    "http-server": "^0.11.1",
+    "husky": "^2.1.0",
+    "jsninja-sensei": "git+https://gitlab.com/javascript-ninja/sensei.git",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.17.0",
+    "testcafe": "^1.1.3"
+  },
+  "prettier": {},
+  "eslintConfig": {
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
+    "rules": {
+      "no-unused-vars": 0
+    },
+    "env": {
+      "browser": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run verify"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier -c",
+      "eslint"
+    ]
+  }
+}
