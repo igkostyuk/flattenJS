@@ -1,7 +1,8 @@
 {
-  "plugins": ["testcafe"],
-  "extends": ["plugin:testcafe/recommended"],
-  "rules": {
-    "no-unused-expressions": 0
+  "env": {
+    "jasmine": true
+  },
+  "globals": {
+    "flatten": true
   }
 }
