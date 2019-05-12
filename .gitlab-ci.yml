@@ -1,6 +1,8 @@
 image: xanf/jsninja-basic-test-env:0.1.0
 stages:
   - run
+variables:
+  GIT_DEPTH: -1
 test:
   stage: run
   script:
@@ -9,7 +11,7 @@ test:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - ssh-keyscan -H gitlab.com >> ~/.ssh/known_hosts
-    - npx 'https://gitlab.com/javascript-ninja/sensei#master' ci
+    - npx 'https://gitlab.com/javascript-ninja/sensei#master' origin/master
     - npm install --development
     - npx prettier -c "**/*.js"
     - npx eslint .
